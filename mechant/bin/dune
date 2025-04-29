@@ -1,4 +1,4 @@
 (executable
  (public_name mechant)
  (name main)
- (libraries mechant))
+ (libraries dotenv mechant))
