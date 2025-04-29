@@ -1,2 +1,7 @@
-TODO
 .env
+
+_build/
+.install/
+*.install
+
+*.swp
