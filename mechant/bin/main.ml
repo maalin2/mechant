@@ -1,4 +1,5 @@
 open Cohttp_lwt_unix
+open Yojson.Basic.Util
 open Lwt.Infix
 
 let () = 
@@ -13,7 +14,10 @@ let () =
                                 let main =
                                         Client.get (Uri.of_string url) >>= fun (_, body) ->
                                         body |> Cohttp_lwt.Body.to_string >|= fun body_str ->
-                                        print_endline ("body\n" ^ body_str)
+                                        let json = Yojson.Basic.from_string body_str in
+                                        let global_quote = json |> member "Global Quote" in
+                                        let price = global_quote |> member "05. price" |> to_string in
+                                        print_endline ("price of " ^ symbol ^ " is " ^  price)
                                 in
                                 Lwt_main.run main
                         end
