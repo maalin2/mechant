@@ -1,4 +1,4 @@
 (executable
  (public_name mechant)
  (name main)
- (libraries dotenv mechant))
+ (libraries dotenv mechant cohttp-lwt-unix))
