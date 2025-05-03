@@ -2,3 +2,7 @@
  (public_name mechant)
  (name main)
  (libraries dotenv mechant yojson cohttp-lwt-unix))
+
+(test
+ (name test_alpha_api)
+ (libraries cohttp-lwt-unix yojson lwt alcotest))
