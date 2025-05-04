@@ -16,7 +16,3 @@ let fetch_price ~api_key ~symbol =
         let global_quote = json |> member "Global Quote" in
         global_quote |> member "05. price" |> to_string
 
-
-        
-
-
