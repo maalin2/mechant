@@ -4,10 +4,15 @@
  (libraries dotenv mechant yojson cohttp-lwt-unix))
 
 (executable
- (public_name cmd)
+ (public_name cli)
  (name mechant_cli)
  (libraries cmdliner dotenv mechant yojson cohttp-lwt-unix))
 
 (test
+ (name test_cli)
+ (libraries str alcotest cmdliner dotenv mechant yojson cohttp-lwt-unix))
+
+(test
  (name test_alpha_api)
  (libraries cohttp-lwt-unix yojson lwt alcotest))
+
