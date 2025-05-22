@@ -1,0 +1,37 @@
+name: run ocaml tests
+
+on:
+  push:
+    branches:
+      - main
+    pull_request:
+
+jobs:
+  test:
+    # ocaml works here
+    runs-on: ubuntu-22.04
+
+    defaults: 
+      run:
+        working-directory: mechant
+
+    steps:
+      - name: checkout repo
+        # better checkout
+        uses: actions/checkout@v3
+
+      - name: setup ocaml
+        uses: ocaml/setup-ocaml@v2
+        with:
+          ocaml-compiler: 5.3.0
+          dune-cache: true 
+
+      - name: tree and install deps
+        run: tree; eval $(opam env); opam install . --deps-only
+
+      - name: build
+        run: opam exec -- dune build
+
+      - name: run tests
+        run: opam exec -- dune runtest
+

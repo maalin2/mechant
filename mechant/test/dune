@@ -1,2 +1,8 @@
 (test
- (name test_mechant))
+ (name test_cli)
+ (libraries str alcotest cmdliner dotenv mechant yojson cohttp-lwt-unix))
+
+(test
+ (name test_alpha_api)
+ (libraries cohttp-lwt-unix yojson lwt alcotest))
+

@@ -13,6 +13,11 @@ depends: [
   "dune" {>= "3.18"}
   "ocaml"
   "odoc" {with-doc}
+  "yojson"
+  "cmdliner"
+  "cohttp-lwt-unix"
+  "dotenv"
+  "alcotest"
 ]
 build: [
   ["dune" "subst"] {dev}
